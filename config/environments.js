@@ -1,7 +1,7 @@
 module.exports = {
     development: {
         app: {
-            port: 3000
+            port: 5555
         }
     },
     staging: {},

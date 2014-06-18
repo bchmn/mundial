@@ -6,15 +6,44 @@
   <title></title>
 </head>
 <body>
-  <header>
-    <input id="input" type="text"></input>
-    <a class="button" onclick="drawSlide()">Generate</a>
-    <a class="button" onclick="clearSlide()">Clear</a>
-  </header>
-  <canvas id="canvas" dir="rtl" width="672" height="378"></canvas>
-  <br />
-  <a class="button" onclick="saveSlide()">save</a>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="/js/script.js"></script>
+  <div class="container">
+    <header>
+      <input id="input" type="text" placeholder="כתוב כאן את הטקסט"></input>
+      <a class="button" onclick="drawSlide()">שדר</a>
+      <a class="button" onclick="clearSlide()">נקה</a>
+      <div class="error-message">וואו חפרתם, זה ארוך מידי....</div>
+      <div class="clr"></div>
+    </header>
+    <div class="canvas-container">
+    <img class="tv" width="740" height="585" src="/images/tv.png"></img>
+    <canvas id="canvas" dir="rtl" width="672" height="412"></canvas>
+    </div>
+    <br />
+    <a class="button save-button" onclick="saveSlide()">שמור</a>
+    <span class="loader rotating"><img src="/images/loader.png"></span>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/bPopUp.js"></script>
+  </div>
+  <div class="popup">
+    <div class="pop-header">
+נמאס לכם שערוץ אחד לוחץ לכם על המצפון ואתם עוד משלמים לו בשביל זה?
+<div class="pop-sub-title">
+  כאן אתם יכולים לענות להם, או סתם לרדת על דני ניומן
+</div>
+</div>
+<div class="pop-body">
+  <ol>
+<li>תכתבו טקסט לשקופית, אבל מצחיק הא</li>
+<li>תלחצו צור שקופית ותראו אותה במסך</li>
+<li>אל תשכחו לשמור ולשתף את התמונה</li>
+  </ol>
+<a class="button close1" onclick="closePop()">יאללה, פנק ואתה</a>
+ 
+
+</div>
+
+
+  </div>
 </body>
 </html>
