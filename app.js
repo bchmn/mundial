@@ -1,10 +1,8 @@
 // module dependencies
 var express = require('express'),
     http = require('http'),
-    fs = require('fs'),
     env = process.env.NODE_ENV || 'development',
-    config = require('./config/environments')[env],
-    utils = require('./config/utils');
+    config = require('./config/environments')[env];
 
 var app = express();
 // express settings
