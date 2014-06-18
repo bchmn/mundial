@@ -13,6 +13,9 @@ var FONT_FACE = 'Arial';
 var INITIAL_FONT_SIZE = 50;
 var TEXT_MAX_WIDTH = 545;
 
+jQuery(document).ready(function(){
+  showPopup();
+});
 function init(isReset) {
   var img = new Image();
   img.onload = function() {
@@ -51,9 +54,26 @@ function init(isReset) {
 
 function drawSlide(text) {
   hasSlide = true;
+  jQuery('.error-message').fadeOut('fast');
+  if (jQuery('#input').val().length > 75) {
+    addError('long');
+    return false;
+  }
+    
   if (typeof text === 'undefined')
     text = input.value;
   writeTextOnCanvas(text, 125);
+}
+
+function addError(errorType) {
+  switch(errorType) {
+    case 'long':
+        jQuery('.error-message').fadeIn('fast');
+        return false;
+        break;
+    default:
+        return;
+}
 }
 
 function writeTextOnCanvas(text, y) {
@@ -61,6 +81,7 @@ function writeTextOnCanvas(text, y) {
 };
 
 function saveSlide() {
+  jQuery('.loader').show();
   $.post('save_image', { image_data_uri: canvas.toDataURL('image/jpeg') })
   .done(function(response) {
     if (response.error != true && response.image_url)
@@ -115,3 +136,18 @@ CanvasRenderingContext2D.prototype.fitTextOnCanvas = function (text,y, maxWidth,
     if (word_index > 0)
         printNextLine(words.join(' '));
 }
+
+function showPopup () {
+  if (localStorage) {
+    if (localStorage.popup) {
+      return;
+    }
+  }
+  localStorage.setItem('popup',true)
+  $('.popup').bPopup({
+            closeClass:'close1',
+            speed: 450,
+            transition: 'slideDown'
+        });
+}
+
