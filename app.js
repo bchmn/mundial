@@ -11,6 +11,10 @@ require('./config/express')(app, config);
 // bootstrap routes
 require('./config/routes')(app, config);
 
+//set handlebars as view engine
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
+
 // web connection
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -113,8 +113,8 @@ function saveSlide() {
   jQuery('.loader').show();
   jQuery.post('create_slide', { image_data_uri: canvas.toDataURL('image/jpeg') })
   .done(function(response) {
-    if (response.error != true && response.image_url)
-      window.location.href = response.image_url;
+    if (response.error != true && response.slideId)
+      window.location.href = 'slide/'+ response.slideId;
   });
 }
 

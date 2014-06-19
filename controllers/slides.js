@@ -1,6 +1,7 @@
 var env = process.env.NODE_ENV || 'development',
-	config = require('../config/environments')[env],
-	guid = require('guid');
+	config = require('../config/environments')[env],	
+	guid = require('guid'),
+	slidesDir = __dirname + '/../public/slides/';
 	//db = require('mongoskin').db(config.app.db);
 
 exports.create = function(req, res) {
@@ -20,17 +21,23 @@ exports.create = function(req, res) {
               var slideId = guid.raw();
 	          console.log('creating slide ' + slideId);
 	          var imageFileName = slideId + '.jpg';
-	          fs.writeFile(__dirname + '/../public/slides/' + imageFileName , new Buffer(matches[2], 'base64'), function(err) {
+	          fs.writeFile(slidesDir + imageFileName , new Buffer(matches[2], 'base64'), function(err) {
 	           if (err) {
 	             db.collection('slides').remove({_id: slideId});
 	             console.error(err);
 	             res.send({ error: true , message: 'error writing image' });
 	           }
 	           else {
-	              var slideURL = req.protocol + '://' + req.get('host') + '/slides/' + imageFileName;
-	              res.send({error: false, image_url: slideURL });                      
+	              res.send({error: false, slideId: slideId });                      
 	           }
 	        });	
           }
       }
+};
+
+exports.get = function(req, res) {
+	var slidePath = slidesDir + req.params.id + '.jpg';
+	if (fs.existsSync(slidePath)) {
+    	res.render('slide', { slideId: req.params.id});
+	}
 };
