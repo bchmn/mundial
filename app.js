@@ -9,7 +9,7 @@ var app = express();
 require('./config/express')(app, config);
 
 // bootstrap routes
-require('./config/routes')(app);
+require('./config/routes')(app, config);
 
 // web connection
 http.createServer(app).listen(app.get('port'), function(){

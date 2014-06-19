@@ -111,7 +111,7 @@ function writeTextOnCanvas(text, y) {
 
 function saveSlide() {
   jQuery('.loader').show();
-  $.post('save_image', { image_data_uri: canvas.toDataURL('image/jpeg') })
+  jQuery.post('create_slide', { image_data_uri: canvas.toDataURL('image/jpeg') })
   .done(function(response) {
     if (response.error != true && response.image_url)
       window.location = response.image_url;
