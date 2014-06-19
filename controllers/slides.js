@@ -19,7 +19,8 @@ exports.create = function(req, res) {
             db.collection('slides').insert({}, function(err, result) {
                 if (err) throw err;
                 if (result) {                  
-                  var slideId = result[0]._id;
+                  var slideId = result[0]._id.toString();
+                  console.error('creating slide ' + slideId);
                   var imageFileName = slideId + '.jpg';
                   fs.writeFile(__dirname + '/../public/slides/' + imageFileName , new Buffer(matches[2], 'base64'), function(err) {
                    if (err) {

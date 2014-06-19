@@ -17,11 +17,11 @@ module.exports = function (app, config) {
 
     //specific environments
     switch (app.get('env')) {
-        case 'production':
+        /*case 'production':
             app.use(errorhandler());
             break;
         case 'staging':
-            break;
+            break;*/
         default:
             app.use(errorhandler({
                 dumpExceptions: true,
