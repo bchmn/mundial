@@ -5,6 +5,7 @@ var input;
 var hasSlide = false;
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var $errorBox;
 
 //********//
 // CONSTS //
@@ -32,9 +33,12 @@ function init(isReset) {
       context.fillStyle = 'white';
       context.textAlign = 'center';
 
+      $errorBox = jQuery('.error-message');
+
       //listen for user input
       input = document.getElementById('input');
       input.addEventListener('keydown', function(e) {
+        $errorBox.fadeOut('fast');
         if (e.keyCode == 13) {
           if (hasSlide) {
               var inputVal = input.value;
@@ -54,26 +58,35 @@ function init(isReset) {
 
 function drawSlide(text) {
   hasSlide = true;
-  jQuery('.error-message').fadeOut('fast');
-  if (jQuery('#input').val().length > 75) {
-    addError('long');
+  if (jQuery(input).val().length == 0) {
+    displayError('empty');
     return false;
   }
-    
+  if (jQuery(input).val().length > 75) {
+    displayError('long');
+    return false;
+  }
+
   if (typeof text === 'undefined')
     text = input.value;
   writeTextOnCanvas(text, 125);
 }
 
-function addError(errorType) {
+function displayError(errorType) {
+  var message;
   switch(errorType) {
     case 'long':
-        jQuery('.error-message').fadeIn('fast');
-        return false;
+        message = 'וואו חפרתם, זה ארוך מידי...';
+        break;
+    case 'empty':
+        message = 'לא בא לכם לכתוב משהו?';
         break;
     default:
-        return;
-}
+        break;
+    }
+
+  $errorBox.html(message).fadeIn('fast');
+  return false;
 }
 
 function writeTextOnCanvas(text, y) {
@@ -150,4 +163,3 @@ function showPopup () {
             transition: 'slideDown'
         });
 }
-
