@@ -114,7 +114,8 @@ a.button:active {
 	font-size: 16px;
 	margin: 15px 0;
 }
-.save-button {
+.button.save-button {
+	display: none;
 	position: absolute;
 	left: 0;
 }

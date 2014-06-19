@@ -2,9 +2,11 @@
 // GLOBALS //
 //*********//
 var input;
+var $input;
 var hasSlide = false;
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var $saveButton;
 var $errorBox;
 
 //********//
@@ -34,9 +36,11 @@ function init(isReset) {
       context.textAlign = 'center';
 
       $errorBox = jQuery('.error-message');
+      $saveButton = jQuery('.save-button');
 
       //listen for user input
       input = document.getElementById('input');
+      $input = jQuery(input);
       input.addEventListener('keydown', function(e) {
         $errorBox.fadeOut('fast');
         if (e.keyCode == 13) {
@@ -51,6 +55,10 @@ function init(isReset) {
         }
       });
   }
+  else {
+    $errorBox.fadeOut('fast');
+    $saveButton.fadeOut('fast');
+  }
 
   input.value = '';
   input.focus();
@@ -58,18 +66,26 @@ function init(isReset) {
 
 function drawSlide(text) {
   hasSlide = true;
-  if (jQuery(input).val().length == 0) {
+  if (typeof text === 'undefined')
+    text = input.value;
+  if (isInputValid(text)) {    
+    writeTextOnCanvas(text, 125);
+    $saveButton.fadeIn('fast');
+  }
+}
+
+function isInputValid(text) {
+  if (text.length == 0) {
     displayError('empty');
     return false;
   }
-  if (jQuery(input).val().length > 75) {
+  else if (text.length > 75) {
     displayError('long');
     return false;
   }
+  else 
+    return true;
 
-  if (typeof text === 'undefined')
-    text = input.value;
-  writeTextOnCanvas(text, 125);
 }
 
 function displayError(errorType) {
