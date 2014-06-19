@@ -138,12 +138,12 @@ CanvasRenderingContext2D.prototype.fitTextOnCanvas = function (text,y, maxWidth,
 }
 
 function showPopup () {
-  if (localStorage) {
+  /*if (localStorage) {
     if (localStorage.popup) {
       return;
     }
   }
-  localStorage.setItem('popup',true)
+  localStorage.setItem('popup',true)*/
   $('.popup').bPopup({
             closeClass:'close1',
             speed: 450,
