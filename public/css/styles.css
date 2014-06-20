@@ -10,6 +10,9 @@ body {
 	box-sizing: border-box;
 	position: relative;
 }
+.slide.container {
+	width: 672px;
+}
 .clr {
 	clear: both;
 }
@@ -163,4 +166,13 @@ a.button:active {
   -ms-animation: 		rotating 2s linear infinite;
   -o-animation: 		rotating 2s linear infinite;
   animation: 			rotating 2s linear infinite;
+}
+.share-box {
+	background: white;
+	padding: 10px;
+	color: green;
+}
+
+.fb-share-button {
+	float: left;
 }
