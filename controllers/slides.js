@@ -40,7 +40,7 @@ exports.get = function(req, res) {
 	if (fs.existsSync(slidePath))
 		res.render('slide', { slideId: req.params.id});
 	else {
-		console.error('error loading slide ' + req.params.id, fs.readdirSync(slidesDir))
+		console.error('error loading slide ' + req.params.id + ' from directory ' + slidesDir, fs.readdirSync(slidesDir))
 		res.redirect('/');
 	}
 };
