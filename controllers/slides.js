@@ -1,7 +1,7 @@
 var env = process.env.NODE_ENV || 'development',
 	config = require('../config/environments')[env],	
 	guid = require('guid'),
-	slidesDir = __dirname + '/../public/slides/';
+	slidesDir = config.app.storage_dir;
 	//db = require('mongoskin').db(config.app.db);
 
 exports.create = function(req, res) {
