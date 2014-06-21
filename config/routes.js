@@ -10,9 +10,11 @@ module.exports = function(app, config) {
 
     //static files served from /public
     app.use(express.static(path.join(__dirname, '/../public')));    
-    if (env === 'production')
-        app.use('/slides', express.static(path.join(__dirname, '/uploads')));
-    
+    if (env === 'production') {
+        console.log("MOUNTING /uploads to /slides");
+        app.use('/slides', express.static(path.join(__dirname, '/../uploads')));
+    }
+
     // root
     app.get('/', function(req, res) {
         res.sendfile('index.html', {'root': __dirname + '/../public/'});
