@@ -39,6 +39,8 @@ exports.get = function(req, res) {
 	var slidePath = slidesDir + req.params.id + '.jpg';
 	if (fs.existsSync(slidePath))
 		res.render('slide', { slideId: req.params.id});
-	else
+	else {
+		console.error('error loading slide ' + req.params.id, fs.readdirSync(slidesDir))
 		res.redirect('/');
+	}
 };
