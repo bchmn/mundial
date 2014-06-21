@@ -37,10 +37,12 @@ exports.create = function(req, res) {
 
 exports.get = function(req, res) {
 	var slidePath = slidesDir + req.params.id + '.jpg';
+	console.log('current directory: ' + __dirname);
+	console.log('getting slide ' + req.params.id + ' from drectory' + slidesDir);	
 	if (fs.existsSync(slidePath))
 		res.render('slide', { slideId: req.params.id});
 	else {
-		console.error('error loading slide ' + req.params.id + ' from directory ' + slidesDir, fs.readdirSync(slidesDir))
+		console.error('error loading slide ' + req.params.id, fs.readdirSync(slidesDir))
 		res.redirect('/');
 	}
 };
