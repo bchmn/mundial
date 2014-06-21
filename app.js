@@ -8,6 +8,10 @@ var app = express();
 // express settings
 require('./config/express')(app, config);
 
+if (env === 'production') {
+	console.log('running in PRODUCTION mode!');
+}
+
 // bootstrap routes
 require('./config/routes')(app, config);
 
