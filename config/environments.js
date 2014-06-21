@@ -10,7 +10,7 @@ module.exports = {
     production: {
         app: {
             port: process.env.PORT,
-            storage_dir: process.env.STORAGE_DIR,
+            storage_dir: __dirname + '/../uploads/',
             db: process.env.MONGODB_URI
         }
     }
