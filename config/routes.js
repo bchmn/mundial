@@ -18,5 +18,6 @@ module.exports = function(app, config) {
     //create slide
     app.post('/create_slide', slides.create);
     //display slide
+    app.get('/slide/', function (req, res) { res.redirect('/') });
     app.get('/slide/:id', slides.get);
 };

@@ -37,9 +37,8 @@ exports.create = function(req, res) {
 
 exports.get = function(req, res) {
 	var slidePath = slidesDir + req.params.id + '.jpg';
-	if (fs.existsSync(slidePath)) {
-    	res.render('slide', { slideId: req.params.id});
-	}
-	/*else
-		res.redirect('index');*/
+	if (fs.existsSync(slidePath))
+		res.render('slide', { slideId: req.params.id});
+	else
+		res.redirect('/');
 };
