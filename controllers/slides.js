@@ -40,4 +40,6 @@ exports.get = function(req, res) {
 	if (fs.existsSync(slidePath)) {
     	res.render('slide', { slideId: req.params.id});
 	}
+	else
+		res.redirect('index');
 };
