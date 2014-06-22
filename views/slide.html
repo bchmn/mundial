@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 <title>מה אני חושב על ערוץ1</title>
+{{#if is_phone}}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+{{/if}}
 <meta property="og:title" content="מה אני חושב על ערוץ 1" />
 <meta property="og:site_name" content="arutzehad.com" />
 <meta property="og:url" content="http://arutzehad.com/slide/{{slideId}}" />
@@ -38,9 +41,6 @@
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=306743582817028&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
-
-
 <a href="http://arutzehad.com" class="button back-button">צור שקופית חדשה</a>
 
   <div class="slide container">

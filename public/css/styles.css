@@ -54,6 +54,8 @@ header .button.clear {
 }
 .tv {
 	position: absolute;
+	width: 740px;
+	height: 585px;
 }
 #canvas {
 	z-index: 2;

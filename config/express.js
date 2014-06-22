@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan'),
+    device = require('express-device'),
     errorhandler = require('errorhandler');
 
 module.exports = function (app, config) {
@@ -14,6 +15,8 @@ module.exports = function (app, config) {
     app.use(bodyParser.json());
     app.use(require('connect-multiparty')());
     app.use(cookieParser('d1A76YqsMksz6Mf5mTJI1b530EXjP87d'));
+    app.use(device.capture());
+    device.enableDeviceHelpers(app);
 
     //specific environments
     switch (app.get('env')) {
