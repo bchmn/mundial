@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  {{#if is_phone}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" media="all and (max-device-width: 720px)" href="/css/mobile.css" />
+  {{/if}}
+  <title>מה אני חושב על ערוץ1</title>
+  <meta property="og:title" content="מה אני חושב על ערוץ 1" />
+<meta property="og:site_name" content="arutzehad.com" />
+<meta property="og:url" content="http://arutzehad.com" />
+<meta property="og:description" content="בוא ליצור שקופיות ולענות לערוץ 1" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="306743582817028" />
+<meta name="description" content="לחצו כדי לראות מה אני חושב על ערוץ 1">
+</head>
+<body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52086778-1', 'arutzehad.com');
+  ga('send', 'pageview');
+</script>
+  <div class="container">
+    <header>
+      <input id="input" dir="rtl" type="text" placeholder="כתוב כאן את הטקסט"></input>
+      <a class="button go" onclick="drawSlide()">שדר</a>
+      <a class="button clear" onclick="clearSlide()">נקה</a>
+      <div class="error-message"></div>
+      <div class="clr"></div>
+    </header>
+    <div class="canvas-container">
+    <img class="tv" src="/images/tv.png"></img>
+    <canvas id="canvas" dir="rtl" width="672" height="412"></canvas>
+    </div>
+    <br />
+    <a class="button save-button" onclick="saveSlide()">שמור</a>
+    <span class="loader rotating"><img src="/images/loader.png"></span>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/bPopUp.js"></script>
+  </div>
+  <div class="popup">
+    <div class="pop-header">Login:</div>
+<div class="pop-body">
+ <form action="/login" method="post" style="direction: ltr;">
+    <div>
+        <label for="user">user:</label>
+        <input type="text" name="user" id="user" />
+    </div>
+    <div>
+        <label for="password">password:</label>
+        <input type="password" name="password" id="password" />
+    </div>
+     <button class="button" type="submit">login</button>
+</form>
+
+
+</div>
+
+
+  </div>
+</body>
+</html>

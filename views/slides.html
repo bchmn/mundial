@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  {{#if is_phone}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" media="all and (max-device-width: 720px)" href="/css/mobile.css" />
+  {{/if}}
+<title>מה אני חושב על ערוץ1</title>
+<meta property="og:title" content="מה אני חושב על ערוץ 1" />
+<meta property="og:site_name" content="arutzehad.com" />
+<meta property="og:description" content="לחץ כדי לראות את השקופית" />
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="306743582817028" />
+<meta name="description" content="לחצו כדי לראות מה אני חושב על ערוץ 1">
+
+</head>
+<body>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      
+    })
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52086778-1', 'arutzehad.com');
+  ga('send', 'pageview');
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=306743582817028&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{{#each slides}}
+  <div><img src="{{this}}"></div>
+{{/each}}
+
+
+</body>
+</html>
