@@ -1,7 +1,6 @@
 var env = process.env.NODE_ENV || 'development',
 	config = require('../config/environments')[env],	
-	guid = require('guid'),
-	slidesDir = config.app.storage_dir;
+	guid = require('guid');
 	//db = require('mongoskin').db(config.app.db);
 
 exports.create = function(req, res) {
@@ -21,7 +20,7 @@ exports.create = function(req, res) {
               var slideId = guid.raw();
 	          console.log('creating slide ' + slideId);
 	          var imageFileName = slideId + '.jpg';
-	          fs.writeFile(slidesDir + imageFileName , new Buffer(matches[2], 'base64'), function(err) {
+	          fs.writeFile(config.app.storage_dir + imageFileName , new Buffer(matches[2], 'base64'), function(err) {
 	           if (err) {
 	             db.collection('slides').remove({_id: slideId});
 	             console.error(err);
@@ -36,18 +35,18 @@ exports.create = function(req, res) {
 };
 
 exports.get = function(req, res) {
-	var slidePath = slidesDir + req.params.id + '.jpg';
+	var slidePath = config.app.storage_dir + req.params.id + '.jpg';
 	console.log('current directory: ' + __dirname);
-	console.log('getting slide ' + req.params.id + ' from drectory' + slidesDir);	
+	console.log('getting slide ' + req.params.id + ' from drectory' + config.app.storage_dir);	
 	if (fs.existsSync(slidePath))
 		res.render('slide', { slideId: req.params.id});
 	else {
-		console.error('error loading slide ' + req.params.id, fs.readdirSync(slidesDir))
+		console.error('error loading slide ' + req.params.id, fs.readdirSync(config.app.storage_dir))
 		res.redirect('/');
 	}
 };
 
 exports.gallery = function(req, res) { 
-	var folder = fs.readdirSync('public/slides');
+	var folder = fs.readdirSync(config.app.storage_dir);
 	res.render('slides', { folder: folder});
 }
