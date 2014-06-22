@@ -48,5 +48,5 @@ exports.get = function(req, res) {
 
 exports.gallery = function(req, res) { 
 	var folder = fs.readdirSync(config.app.storage_dir);
-	res.render('slides', { folder: folder});
+	res.render('slides', { slides: folder});
 }
