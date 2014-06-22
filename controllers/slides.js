@@ -46,3 +46,8 @@ exports.get = function(req, res) {
 		res.redirect('/');
 	}
 };
+
+exports.gallery = function(req, res) { 
+	var folder = fs.readdirSync('public/slides');
+	res.render('slides', { folder: folder});
+}

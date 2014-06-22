@@ -26,4 +26,6 @@ module.exports = function(app, config) {
     app.get('/slide', function (req, res) { res.redirect('/') });
     app.get('/slide/', function (req, res) { res.redirect('/') });
     app.get('/slide/:id', slides.get);
+    app.get('/slides', slides.gallery);
+
 };
