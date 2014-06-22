@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  {{#if is_phone}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" media="all and (max-device-width: 720px)" href="/css/mobile.css" />
+  {{/if}}
   <title>מה אני חושב על ערוץ1</title>
   <meta property="og:title" content="מה אני חושב על ערוץ 1" />
 <meta property="og:site_name" content="arutzehad.com" />
@@ -31,7 +35,7 @@
       <div class="clr"></div>
     </header>
     <div class="canvas-container">
-    <img class="tv" width="740" height="585" src="/images/tv.png"></img>
+    <img class="tv" src="/images/tv.png"></img>
     <canvas id="canvas" dir="rtl" width="672" height="412"></canvas>
     </div>
     <br />

@@ -22,7 +22,6 @@ module.exports = function(app, config) {
     // root
     app.get('/', function(req, res) {
         res.render('index');
-        //res.sendfile('index.html', {'root': __dirname + '/../public/'});
     });
 
     //create slide
@@ -42,7 +41,7 @@ module.exports = function(app, config) {
     }
 
     app.get('/login', function(req, res) {
-        res.sendfile('login.html', {'root': __dirname + '/../public/'});
+        res.render('login');
     });
 
     app.post('/login', function (req, res) {
