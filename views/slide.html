@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
-<title>מה אני חושב על ערוץ1</title>
+  <title>מה אני חושב על ערוץ1</title>
+  {{#if is_phone}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" media="all and (max-device-width: 720px)" href="/css/mobile.css" />
+  {{/if}}
 <meta property="og:title" content="מה אני חושב על ערוץ 1" />
 <meta property="og:site_name" content="arutzehad.com" />
 <meta property="og:url" content="http://arutzehad.com/slide/{{slideId}}" />
@@ -40,9 +44,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-<a href="http://arutzehad.com" class="button back-button">צור שקופית חדשה</a>
-
   <div class="slide container">
     <img src="../slides/{{slideId}}.jpg" />
     <div class="share-box">
@@ -52,5 +53,6 @@
 או שמרו את התמונה על ידי לחיצה עם הכפתור הימני ושמור תמונה בשם
 </div>  
   </div>
+  <a href="http://arutzehad.com" class="button back-button">צור שקופית חדשה</a>
 </body>
 </html>

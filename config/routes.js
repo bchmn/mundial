@@ -21,7 +21,8 @@ module.exports = function(app, config) {
 
     // root
     app.get('/', function(req, res) {
-        res.sendfile('index.html', {'root': __dirname + '/../public/'});
+        res.render('index');
+        //res.sendfile('index.html', {'root': __dirname + '/../public/'});
     });
 
     //create slide
